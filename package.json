@@ -1,0 +1,26 @@
+{
+  "name": "nbrc_soho",
+  "version": "1.0.0",
+  "description": "Northamptonshire Biodiversity Records Centre wants more people engaged in its records collection",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oli-gra/nbrc_soho.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oli-gra/nbrc_soho/issues"
+  },
+  "homepage": "https://github.com/oli-gra/nbrc_soho#readme",
+  "dependencies": {
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "pg": "^7.11.0"
+  },
+  "devDependencies": {}
+}

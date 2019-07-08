@@ -1,0 +1,1 @@
+/Applications/Postgres.app/Contents/Versions/11/bin/postgres "-D" "/Users/oli-gra/Dev/nbrc_soho/data" "-p" "5432"
