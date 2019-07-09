@@ -1,6 +1,6 @@
-import sh from 'ship-hold'
+import pg from 'pg'
 
-const db = sh.shiphold({
+const db = new pg.Pool({
    user: 'oli-gra',
    host: 'localhost',
    database: 'api',
@@ -8,21 +8,27 @@ const db = sh.shiphold({
    port: 5432,
 })
 
-export default async function getUser(email) {
-   return db.select()
-      .from('users')
-      .where('email', '=', email)
-      .run()
+export async function getUser(email) {
+   return db.query(
+      'SELECT 1 FROM users WHERE email = $1', [email]
+   )
 }
 
-export async function postRating(did, uid, rating) {
-   db.insert('id', 'rating', 'uid', 'did')
-      .values({
-         rating: rating,
-         uid: uid,
-         did: did
-      })
-      .into('ratings')
-      .returning('*')
-      .build()
+export async function postUser(email) {
+   return db.query(
+      'INSERT INTO users VALUES (DEFAULT,$1) ON CONFLICT ON CONSTRAINT unique_email DO NOTHING', [email]
+   )
+}
+
+export async function getRatings() {
+   return db.query(
+      'SELECT * FROM ratings ORDER BY rating DESC'
+   )
+
+}
+
+export async function postRating(uid, did, rating) {
+   return db.query(
+      'INSERT INTO ratings VALUES (DEFAULT,$1,$2,$3) RETURNING rating', [uid, did, rating]
+   )
 }
