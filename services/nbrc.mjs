@@ -23,7 +23,6 @@ const nbrc = axios
 
       }
       )
-      console.log(ratings)
       return summary
    })
 
