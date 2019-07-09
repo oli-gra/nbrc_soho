@@ -18,9 +18,10 @@
   },
   "homepage": "https://github.com/oli-gra/nbrc_soho#readme",
   "dependencies": {
-    "dotenv": "^8.0.0",
+    "axios": "^0.19.0",
     "express": "^4.17.1",
-    "pg": "^7.11.0"
+    "pg": "^7.11.0",
+    "ship-hold": "^2.0.1"
   },
   "devDependencies": {}
 }
